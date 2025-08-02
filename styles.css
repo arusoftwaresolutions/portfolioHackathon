@@ -1,4 +1,4 @@
- /* Nature-Inspired Color Palette */
+/* Nature-Inspired Color Palette */
         :root {
             --primary-green: #2e7d32;
             --primary-green-dark: #1b5e20;
@@ -17,7 +17,7 @@
         }
 
         /* Dark Mode Variables */
-        [data-theme="dark"] {
+        :root:has(#theme-toggle:checked) {
             --text-color: #e0e0e0;
             --bg-color: #121212;
             --card-bg: #1e1e1e;
@@ -34,6 +34,10 @@
             padding: 0;
             box-sizing: border-box;
             transition: background-color 0.5s ease, color 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -137,12 +141,9 @@
             margin-right: auto;
         }
 
-        /* Dark Mode Toggle */
+        /* Dark Mode Toggle - Corrected Position */
         .theme-switch-wrapper {
-            position: fixed;
-            top: 0px;
-            right: 10px;
-            z-index: 2000;
+            position: relative;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -150,6 +151,9 @@
             padding: 8px 15px;
             border-radius: 30px;
             box-shadow: var(--box-shadow);
+            margin-left: auto;
+            margin-right: 15px;
+            z-index: 1;
         }
 
         .theme-switch {
@@ -160,7 +164,10 @@
         }
 
         .theme-switch input {
-            display: none;
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         .slider {
@@ -187,11 +194,11 @@
             border-radius: 50%;
         }
 
-        input:checked + .slider {
+        #theme-toggle:checked + .slider {
             background-color: var(--primary-green);
         }
 
-        input:checked + .slider:before {
+        #theme-toggle:checked + .slider:before {
             transform: translateX(24px);
         }
 
@@ -199,7 +206,7 @@
             font-size: 1.2rem;
         }
 
-        /* Header Styles */
+        /* Header Styles - Corrected */
         header {
             position: fixed;
             top: 0;
@@ -259,6 +266,12 @@
 
         nav ul li a:hover::after {
             width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         /* Mobile Navigation */
@@ -664,7 +677,7 @@
 
         .skill-level {
             height: 100%;
-            background: linear-gradient(to right, var(--primary-green), var(--secondary-blue));
+            background: linear-gradient(to right, var(--primary-green), var(--sky-blue));
             border-radius: 5px;
         }
 
@@ -1083,8 +1096,26 @@
         }
 
         @media (max-width: 768px) {
+            /* Corrected mobile toggle position */
+            .theme-switch-wrapper {
+                position: static;
+                margin-right: 10px;
+            }
+            
             nav ul {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--card-bg);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-toggle:checked ~ nav ul {
+                display: flex;
             }
             
             .nav-toggle-label {
@@ -1143,7 +1174,7 @@
                 font-size: 2rem;
             }
             
-            .stat-item {
+            .nature-stat {
                 padding: 20px 15px;
             }
             
@@ -1159,5 +1190,14 @@
             .footer-content {
                 flex-direction: column;
                 gap: 30px;
+            }
+            
+            /* Adjust header spacing for mobile */
+            header .container {
+                padding: 0 15px;
+            }
+            
+            .theme-switch-wrapper {
+                padding: 6px 12px;
             }
         }
