@@ -21,7 +21,8 @@ This portfolio showcases My skills and journey as a nature-inspired developer. T
 - Google Fonts (Poppins, Montserrat)
 
 ## Live Demo
-View the portfolio live: 
+View the portfolio live: [🚀 **Project Live**](https://arusoftwaresolutions.github.io/portfolioHackathon/)
+
 ## How to Use
 1. Download the `index.html` file
 2. Open it in any modern web browser
@@ -58,4 +59,5 @@ To customize this portfolio:
 Araya Haftu  
 Email: arayahaftu1229@gmail.com  
 LinkedIn: linkedin.com/in/araya21  
+
 GitHub: github.com/arusoftwaresolutions  
